@@ -7,6 +7,7 @@ class Image:
     def __init__(self, path:str, nom:str) -> None:
         self.image = img.open(path)
         self.tkimage = TkImage.PhotoImage(self.image)
+        self.nomimage = nom
 
 class carrousel:
     def __init__(self, collection:list) -> None:
