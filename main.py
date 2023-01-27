@@ -33,13 +33,13 @@ class carrousel:
         return self.images[self.currentid].tkimage
 
 class Fenetre:
-    def __init__(self):
+    def __init__(self) -> None:
         self.fenetre = tk.Tk()
         self.fenetre.attributes("-topmost", True)
         self.fenetre.lift()
         self.fenetre.attributes("-fullscreen", True)
 
-def getmaplist():
+def getmaplist() -> list:
     listenom:list = os.listdir("./MAP")
     listemap:list = []
     for map in listenom:
@@ -63,12 +63,12 @@ def loop(car:carrousel, fen:tk.Tk, label:tk.Label, curOP:float=1.0):
             fen.attributes("-alpha", 1.0)
             nextop = 1.0
     elif touche == "bas":
-        raise SystemExit
+        fen.destroy()
     fen.update()
     fen.after(200, loop, car, fen, label, nextop)
 
 
-def mainprog() -> None: 
+def mainprog(): 
     root = Fenetre()
     fen = root.fenetre
 
@@ -82,8 +82,6 @@ def mainprog() -> None:
 
     fen.after(500, loop, car, fen, label)
     fen.mainloop()
-
-
 
 
 if __name__ == "__main__":
