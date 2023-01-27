@@ -1,7 +1,0 @@
-Les touches :
-
-Flèche de droite pour changer de map
-
-Flèche du bas pour quitter le prgramme 
-
-Flèche du haut pour cacher la map
