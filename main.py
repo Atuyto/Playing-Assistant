@@ -11,9 +11,10 @@ class Image:
 
 class carrousel:
     def __init__(self, collection:list) -> None:
-        self.images = {}
-        for i  in range(len(collection)):
-            self.images[i] = collection[i]        
+        self.images = collection
+        # self.images = {}
+        # for i  in range(len(collection)):
+        #     self.images[i] = collection[i]
         self.currentid = 0
         self.idmax = len(collection)-1
 
