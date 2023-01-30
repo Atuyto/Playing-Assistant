@@ -47,6 +47,14 @@ def getmaplist() -> list:
         listemap.append(Image(f"MAP/{map}", map[:-4]))
     return listemap
 
+def getitemslist(path = r"./Tarkitems.csv") -> list:
+    fichierliste = open(path , "r")
+    itemlist = fichierliste.read().split("\n")
+    for i in range(len(itemlist)):
+        itemlist[i] = itemlist[i].split(",")
+    return itemlist
+
+
 def loop(car:carrousel, fen:tk.Tk, label:tk.Label, curOP:float=1.0):
     touche = keyboard.read_key(False)
     nextop:float = curOP
@@ -80,10 +88,12 @@ def mainprog():
 
     label = tk.Label(fen, image = car.getcurent())
     label.pack()
+    
 
     fen.after(500, loop, car, fen, label)
     fen.mainloop()
 
 
 if __name__ == "__main__":
-    mainprog()
+    # mainprog()
+    print(getitemslist())
