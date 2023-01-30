@@ -1,3 +1,4 @@
 *.cmd
 *.txt
 .vscode/
+.__pycache__/
