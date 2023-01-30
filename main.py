@@ -1,6 +1,12 @@
 import maps
 import tkinter as tk
+from PIL import Image as img, ImageTk as TkImage
 
+class Image:
+    def __init__(self, path:str, nom:str) -> None:
+        self.image = img.open(path)
+        self.tkimage = TkImage.PhotoImage(self.image)
+        self.nomimage = nom
 
 class Fenetre:
     def __init__(self) -> None:

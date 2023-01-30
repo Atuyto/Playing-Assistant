@@ -1,7 +1,8 @@
 import os
 import tkinter as tk
 import keyboard
-from PIL import Image as img, ImageTk as TkImage
+from main import Image
+
 
 class Fenetre:
     def __init__(self) -> None:
@@ -10,11 +11,6 @@ class Fenetre:
         self.fenetre.lift()
         self.fenetre.attributes("-fullscreen", True)
 
-class Image:
-    def __init__(self, path:str, nom:str) -> None:
-        self.image = img.open(path)
-        self.tkimage = TkImage.PhotoImage(self.image)
-        self.nomimage = nom
 
 class carrousel:
     def __init__(self, collection:list) -> None:
