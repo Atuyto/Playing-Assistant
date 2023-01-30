@@ -2,7 +2,7 @@ import os
 import tkinter as tk
 import keyboard
 from main import Image
-
+from PIL import Image as img, ImageTk as TkImage
 
 class Fenetre:
     def __init__(self) -> None:
