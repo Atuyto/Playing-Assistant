@@ -1,7 +1,14 @@
 import os
 import tkinter as tk
-from PIL import Image as img, ImageTk as TkImage
 import keyboard
+from PIL import Image as img, ImageTk as TkImage
+
+class Fenetre:
+    def __init__(self) -> None:
+        self.fenetre = tk.Tk()
+        self.fenetre.attributes("-topmost", True)
+        self.fenetre.lift()
+        self.fenetre.attributes("-fullscreen", True)
 
 class Image:
     def __init__(self, path:str, nom:str) -> None:
@@ -33,12 +40,6 @@ class carrousel:
     def getcurent(self) -> TkImage.PhotoImage :
         return self.images[self.currentid].tkimage
 
-class Fenetre:
-    def __init__(self) -> None:
-        self.fenetre = tk.Tk()
-        self.fenetre.attributes("-topmost", True)
-        self.fenetre.lift()
-        self.fenetre.attributes("-fullscreen", True)
 
 def getmaplist() -> list:
     listenom:list = os.listdir("./MAP")
@@ -46,13 +47,6 @@ def getmaplist() -> list:
     for map in listenom:
         listemap.append(Image(f"MAP/{map}", map[:-4]))
     return listemap
-
-def getitemslist(path = r"./Tarkitems.csv") -> list:
-    fichierliste = open(path , "r")
-    itemlist = fichierliste.read().split("\n")
-    for i in range(len(itemlist)):
-        itemlist[i] = itemlist[i].split(",")
-    return itemlist
 
 
 def loop(car:carrousel, fen:tk.Tk, label:tk.Label, curOP:float=1.0):
@@ -95,5 +89,4 @@ def mainprog():
 
 
 if __name__ == "__main__":
-    # mainprog()
-    print(getitemslist())
+    mainprog()
