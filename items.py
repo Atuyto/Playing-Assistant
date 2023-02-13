@@ -10,3 +10,7 @@ def getitemslist(path = r"./Tarkitems.csv") -> list:
     for i in range(len(itemlist)):
         itemlist[i] = itemlist[i].split(",")
     return itemlist
+
+
+def mainprog() -> None:
+    print(getitemslist())

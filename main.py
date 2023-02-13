@@ -1,4 +1,4 @@
-import maps
+import maps ,items
 import tkinter as tk
 from PIL import Image as img, ImageTk as TkImage
 
@@ -12,27 +12,34 @@ class Fenetre:
     def __init__(self) -> None:
         self.fenetre = tk.Tk()
         self.fenetre.lift()
+        self.fenetre.geometry("500x500")
+    def getroot(self) -> tk.Tk :
+        return self.fenetre
+
 
 
 def start(fen:tk.Tk, choixsoft:tk.StringVar):
     choix = choixsoft.get()
+
     if choix == "Tarkovmap":
         fen.destroy()
         maps.mainprog()
-
+        
+    elif choix == "TarkyItems":
+        fen.destroy()
+        items.mainprog()
 
 
 
 def mainprog() -> None:
-    root = Fenetre()
-    fen = root.fenetre
-    fen.geometry("500x500")
+    fen = Fenetre()
+    surface = fen.getroot()
     choixsoft = tk.StringVar()
-    drop = tk.OptionMenu(fen , choixsoft, *["Tarkovmap","Tamere", "Missié salam"])
+    drop = tk.OptionMenu(surface , choixsoft, *["Tarkovmap","TarkyItems", "Missié salam"])
     drop.pack()
-    button = tk.Button( fen, text = "Valider" , command = lambda : start(fen, choixsoft))
+    button = tk.Button( surface, text = "Valider" , command = lambda : start(surface, choixsoft))
     button.pack()
-    fen.mainloop()
+    surface.mainloop()
 
 
 

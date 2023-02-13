@@ -1,7 +1,7 @@
 import os
 import tkinter as tk
 import keyboard
-from main import Image
+import main
 from PIL import Image as img, ImageTk as TkImage
 
 class Fenetre:
@@ -41,7 +41,7 @@ def getmaplist() -> list:
     listenom:list = os.listdir("./MAP")
     listemap:list = []
     for map in listenom:
-        listemap.append(Image(f"MAP/{map}", map[:-4]))
+        listemap.append(main.Image(f"MAP/{map}", map[:-4]))
     return listemap
 
 
@@ -63,6 +63,8 @@ def loop(car:carrousel, fen:tk.Tk, label:tk.Label, curOP:float=1.0):
             nextop = 1.0
     elif touche == "bas":
         fen.destroy()
+        main.mainprog()
+
     fen.update()
     fen.after(200, loop, car, fen, label, nextop)
 
